@@ -1,0 +1,17 @@
+{
+    "default-registry": {
+        "kind": "git",
+        "repository": "https://github.com/microsoft/vcpkg.git",
+        "baseline": "2815578f4a3486cec24c9b07d17e18e03bbaf667"
+    },
+    "registries": [
+            {
+                "kind": "filesystem",
+                "path": "./custom_vcpkg",
+                "packages": [
+                    "commonlibf4"
+                ],
+                "baseline": "2023-10-20"
+            }
+        ]
+}

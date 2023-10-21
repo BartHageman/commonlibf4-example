@@ -1,0 +1,6 @@
+CompileFlags:
+  Add: 
+    -Ibuild\vcpkg_installed\x64-windows-static-md\include
+    -Ibuild\vcpkg_installed\x64-windows\include
+    -xc++
+    -std=c++20
