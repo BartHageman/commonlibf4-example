@@ -214,5 +214,14 @@ source_group(
 	FILES ${SCRIPT}
 )
 
-# set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-# set(EXPORT_COMPILE_COMMANDS ON)
+
+find_package(Python QUIET)
+
+if(Python_FOUND)
+    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                       COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/cmake/rc_be_gone.py
+                       COMMENT "Fixing up compile_commands.json by removing the entry for rc.exe."
+                       VERBATIM)
+else()
+    message(WARNING "Python not found! Post-build script will not be run.")
+endif()
