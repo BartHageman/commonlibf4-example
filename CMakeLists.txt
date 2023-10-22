@@ -216,7 +216,7 @@ source_group(
 
 
 find_package(Python QUIET)
-
+#a fda
 if(Python_FOUND)
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
                        COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/cmake/rc_be_gone.py
