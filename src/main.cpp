@@ -1,3 +1,10 @@
+
+// This function is called by F4SE while initializing. During this call, you
+// provide F4SE with your plugin's name, version and info version, by modifying
+// the F4SE::PluginInfo you get passed using a pointer. You can set up a logger
+// here too, if you want, but it isn't strictly required.
+// Finally, we check if our plugin can safely be loaded by F4SE.
+// If we can, we return true. Otherwise false.
 extern "C" DLLEXPORT bool F4SEAPI F4SEPlugin_Query(const F4SE::QueryInterface* a_f4se, F4SE::PluginInfo* a_info)
 {
 #ifndef NDEBUG
@@ -17,7 +24,7 @@ extern "C" DLLEXPORT bool F4SEAPI F4SEPlugin_Query(const F4SE::QueryInterface* a
 #ifndef NDEBUG
 	log->set_level(spdlog::level::trace);
 #else
-	log->set_level(spdlog::level::info);
+	logc>set_level(spdlog::level::info);
 	log->flush_on(spdlog::level::warn);
 #endif
 
@@ -47,10 +54,9 @@ extern "C" DLLEXPORT bool F4SEAPI F4SEPlugin_Query(const F4SE::QueryInterface* a
 extern "C" DLLEXPORT bool F4SEAPI F4SEPlugin_Load(const F4SE::LoadInterface* a_f4se)
 {
 	F4SE::Init(a_f4se);
-	// kGameLoaded: After Savegame done loading
     F4SE::GetMessagingInterface()->RegisterListener([](F4SE::MessagingInterface::Message *message) {
         if (message->type == F4SE::MessagingInterface::kGameDataReady) {
-			RE::ConsoleLog::GetSingleton()->AddString("Hello, Mobi!");
+			RE::ConsoleLog::GetSingleton()->AddString("Hello, World!");
         }
     });
 	logger::info("hello world!");

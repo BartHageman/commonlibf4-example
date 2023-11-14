@@ -6,12 +6,12 @@
     },
     "registries": [
             {
-                "kind": "filesystem",
-                "path": "./custom_vcpkg",
-                "packages": [
-                    "commonlibf4"
-                ],
-                "baseline": "2023-10-20"
-            }
+              "kind": "git",
+            "repository": "https://gitlab.com/ManiacalMobi/vcpkg-colorglass",
+            "baseline": "845295c16be0a4ca7eaf34a6efdbe1dd5a1e9371",
+            "packages": [
+                "commonlibf4"
+            ]
+          }
         ]
 }
