@@ -219,7 +219,7 @@ find_package(Python QUIET)
 #a fda
 if(Python_FOUND)
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-                       COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/cmake/rc_be_gone.py
+                       COMMAND ${Python_EXECUTABLE} ${CMAKE_SOURCE_DIR}/scripts/rc_be_gone.py
                        COMMENT "Fixing up compile_commands.json by removing the entry for rc.exe."
                        VERBATIM)
 else()
