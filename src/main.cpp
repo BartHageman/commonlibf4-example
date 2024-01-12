@@ -24,7 +24,7 @@ extern "C" DLLEXPORT bool F4SEAPI F4SEPlugin_Query(const F4SE::QueryInterface* a
 #ifndef NDEBUG
 	log->set_level(spdlog::level::trace);
 #else
-	logc>set_level(spdlog::level::info);
+	log->set_level(spdlog::level::info);
 	log->flush_on(spdlog::level::warn);
 #endif
 
